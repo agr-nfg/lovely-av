@@ -1,28 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Boyfriend Test 💖</title>
+  <meta charset="UTF-8">
+  <title>Our Love Quiz 💖</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      display: flex;
-      justify-content: center;
-      align-items: center;
       height: 100vh;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: Arial, sans-serif;
     }
-    .box {
+    .card {
       background: white;
       padding: 30px;
-      border-radius: 20px;
+      border-radius: 16px;
       width: 90%;
       max-width: 400px;
+      text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
+    h1 { margin-bottom: 10px; }
+    .question { margin-top: 15px; text-align: left; }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
     button {
-      margin-top: 15px;
+      margin-top: 20px;
       padding: 10px 20px;
       border: none;
       border-radius: 20px;
@@ -33,48 +43,62 @@
     .tap {
       font-size: 12px;
       color: gray;
-      margin-top: 10px;
+      margin-bottom: 10px;
     }
   </style>
 </head>
-<body onclick="startMusic()">
+<body>
 
-<audio id="music" loop>
-  <source src="song.m4a" type="audio/mp4">
-</audio>
+<audio id="music" src="song.m4a" loop></audio>
 
-<div class="box">
-  <h2>Boyfriend Test 💘</h2>
-  <p>When did we first talk?</p>
+<div class="card" onclick="playMusic()">
+  <div class="tap">Tap anywhere to start music 🎵</div>
+  <h1>Our Love Quiz 💘</h1>
 
-  <button onclick="correct()">2023</button><br>
-  <button onclick="wrong()">2021</button><br>
-  <button onclick="wrong()">2020</button>
+  <div class="question">
+    1. What year did we talk first?
+    <input id="q1">
+  </div>
 
-  <p class="tap">Tap anywhere to start music 🎵</p>
+  <div class="question">
+    2. Who said "I love you" first?
+    <input id="q2">
+  </div>
+
+  <div class="question">
+    3. Who kissed first?
+    <input id="q3">
+  </div>
+
+  <div class="question">
+    4. Where did we travel together first?
+    <input id="q4">
+  </div>
+
+  <div class="question">
+    5. How much do I love you?
+    <input id="q5">
+  </div>
+
+  <button onclick="submitQuiz()">Submit 💌</button>
 </div>
 
 <script>
-let started = false;
-let score = 0;
-
-function startMusic() {
-  if (!started) {
-    const music = document.getElementById("music");
-    music.play();
-    localStorage.setItem("music", "on");
-    started = true;
-  }
+function playMusic() {
+  document.getElementById("music").play();
 }
 
-function correct() {
-  score += 100;
+function submitQuiz() {
+  let score = 0;
+
+  if (q1.value.trim() == "2023") score++;
+  if (q2.value.trim().toLowerCase() == "av") score++;
+  if (q3.value.trim().toLowerCase() == "agr") score++;
+  if (q4.value.trim().toLowerCase() == "kanyakumari") score++;
+  if (q5.value.trim().toLowerCase() == "infinity") score++;
+
   localStorage.setItem("score", score);
   window.location.href = "result.html";
-}
-
-function wrong() {
-  alert("Wrong 😤 try again!");
 }
 </script>
 
