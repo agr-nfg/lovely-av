@@ -1,55 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Your Result 💖</title>
+  <title>Your Love Score 💕</title>
   <style>
     body {
       margin: 0;
-      height: 100vh;
+      min-height: 100vh;
+      background: linear-gradient(to bottom right, #ff758c, #ff7eb3);
       display: flex;
-      align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
-      font-family: Arial, sans-serif;
+      align-items: center;
+      font-family: 'Comic Sans MS', cursive;
+      color: white;
       text-align: center;
     }
+
     .box {
-      background: white;
+      background: rgba(0,0,0,0.4);
       padding: 40px;
+      border-radius: 30px;
+      width: 90%;
+      max-width: 600px;
+    }
+
+    h1 { font-size: 2.5em; }
+
+    .gif {
+      width: 200px;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      max-width: 400px;
+      margin: 15px;
+    }
+
+    .emoji {
+      font-size: 40px;
     }
   </style>
 </head>
+
 <body onclick="playMusic()">
 
-<audio id="music" src="song.m4a" loop></audio>
+<audio id="bgm" loop>
+  <source src="song.m4a" type="audio/mp4">
+</audio>
 
 <div class="box">
-  <h1 id="scoreText"></h1>
-  <p id="message"></p>
+  <h1>💘 Your Love Score 💘</h1>
+  <div class="emoji">💖 💕 💞 💝 💓</div>
+
+  <h2 id="score"></h2>
+
+  <p id="msg"></p>
+
+  <img class="gif" src="https://media.giphy.com/media/l4FGpP4lxGGgK5CBW/giphy.gif">
+  <img class="gif" src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif">
 </div>
 
 <script>
-function playMusic() {
-  document.getElementById("music").play();
+let played = false;
+function playMusic(){
+  if(!played){
+    document.getElementById("bgm").play();
+    played = true;
+  }
 }
 
-let score = localStorage.getItem("score");
-
-document.getElementById("scoreText").innerText = score + " / 5 💕";
+let s = localStorage.getItem("score");
+document.getElementById("score").innerText = `You scored ${s}/10 💯`;
 
 let msg = "";
-if (score == 5) {
-  msg = "You are officially my soulmate 🥹💍";
-} else if (score >= 3) {
-  msg = "Good boyfriend, but needs more cuddles 🤭";
-} else {
-  msg = "Fake boyfriend detected 😤";
-}
+if(s >= 9) msg = "SOULMATES. PERIOD. 💍";
+else if(s >= 7) msg = "Deeply in love 😘";
+else msg = "Still cute though 😌";
 
-document.getElementById("message").innerText = msg;
+document.getElementById("msg").innerText = msg;
 </script>
 
 </body>
