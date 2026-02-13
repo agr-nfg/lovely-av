@@ -1,60 +1,56 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Result 💕</title>
+  <title>Your Result 💖</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(135deg, #a18cd1, #fbc2eb);
-      display: flex;
-      justify-content: center;
-      align-items: center;
       height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      font-family: Arial, sans-serif;
       text-align: center;
     }
     .box {
       background: white;
       padding: 40px;
       border-radius: 20px;
-      width: 90%;
-      max-width: 400px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 400px;
     }
   </style>
 </head>
-<body onclick="startMusic()">
+<body onclick="playMusic()">
 
-<audio id="music" loop>
-  <source src="song.m4a" type="audio/mp4">
-</audio>
+<audio id="music" src="song.m4a" loop></audio>
 
 <div class="box">
   <h1 id="scoreText"></h1>
-  <p>You passed the boyfriend test! 🥰</p>
-  <p>I love you endlessly 💖</p>
-  <p style="font-size:12px;color:gray;">Tap anywhere if music didn't start 🎵</p>
+  <p id="message"></p>
 </div>
 
 <script>
-let started = false;
-
-function startMusic() {
-  if (!started) {
-    const music = document.getElementById("music");
-    music.play();
-    localStorage.setItem("music", "on");
-    started = true;
-  }
+function playMusic() {
+  document.getElementById("music").play();
 }
 
-const score = localStorage.getItem("score") || 0;
-document.getElementById("scoreText").innerText = score + " / 100 💞";
+let score = localStorage.getItem("score");
 
-if (localStorage.getItem("music") === "on") {
-  const music = document.getElementById("music");
-  music.play();
+document.getElementById("scoreText").innerText = score + " / 5 💕";
+
+let msg = "";
+if (score == 5) {
+  msg = "You are officially my soulmate 🥹💍";
+} else if (score >= 3) {
+  msg = "Good boyfriend, but needs more cuddles 🤭";
+} else {
+  msg = "Fake boyfriend detected 😤";
 }
+
+document.getElementById("message").innerText = msg;
 </script>
 
 </body>
