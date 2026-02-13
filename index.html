@@ -2,12 +2,50 @@
 <html>
 <head>
   <title>Happy Valentine's 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(#ff9a9e, #fad0c4);
+      font-family: 'Arial', sans-serif;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 300px;
+    }
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #ff4d6d;
+      color: white;
+      font-size: 16px;
+      margin-top: 15px;
+    }
+  </style>
 </head>
-<body style="text-align:center; background:pink;">
-  <h1>Happy Valentine’s Day ❤️</h1>
-  <p>Ready for a little quiz about us?</p>
+<body>
+
+<div class="card">
+  <h1>Happy Valentine’s ❤️</h1>
+  <p>Are you ready for your love quiz?</p>
+
+  <audio controls autoplay loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <br>
   <a href="quiz.html">
-    <button>Start Quiz 💘</button>
+    <button>Start 💘</button>
   </a>
+</div>
+
 </body>
 </html>
