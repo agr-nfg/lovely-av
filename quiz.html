@@ -1,55 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Love Quiz 💘</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(#fad0c4, #ffd1ff);
-      font-family: Arial;
-    }
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 20px;
-      width: 300px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-    button {
-      padding: 12px 20px;
-      border: none;
-      border-radius: 10px;
-      background: #ff4d6d;
-      color: white;
-      font-size: 16px;
-      margin-top: 20px;
-    }
-  </style>
+  <title>Love Quiz 💕</title>
 </head>
 <body>
 
-<div class="card">
-  <h2>How well do you know us? 😏</h2>
+<h2>How well do you know me? 😌</h2>
 
-  <p>1. Who fell first?</p>
-  <input type="radio" name="q1"> You<br>
-  <input type="radio" name="q1"> Me<br>
-
-  <p>2. Our favourite thing together?</p>
-  <input type="radio" name="q2"> Food<br>
-  <input type="radio" name="q2"> Movies<br>
-  <input type="radio" name="q2"> Both<br>
+<form action="result.html">
+  <p>1. Where did we first talk?</p>
+  <input type="radio" name="q1"> Instagram<br>
+  <input type="radio" name="q1"> WhatsApp<br>
+  <input type="radio" name="q1"> Real life<br>
 
   <br>
-  <a href="result.html">
-    <button type="button">See my score 💌</button>
-  </a>
-</div>
+
+  <p>2. My favourite thing about you?</p>
+  <input type="radio" name="q2"> Smile<br>
+  <input type="radio" name="q2"> Voice<br>
+  <input type="radio" name="q2"> Everything 😏<br>
+
+  <br>
+  <button type="submit">See Result 💖</button>
+</form>
+
+<audio id="bg-music" loop>
+  <source src="song.m4a" type="audio/mp4">
+</audio>
+
+<script>
+if (localStorage.getItem("musicAllowed") === "yes") {
+  document.getElementById("bg-music").play();
+}
+</script>
 
 </body>
 </html>
