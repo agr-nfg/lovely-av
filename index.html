@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Happy Valentine's 💖</title>
+  <meta charset="UTF-8">
+  <title>Happy Valentine 💖</title>
   <style>
     body {
       margin: 0;
@@ -9,43 +10,49 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(#ff9a9e, #fad0c4);
-      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: Arial, sans-serif;
     }
+
     .card {
       background: white;
       padding: 30px;
       border-radius: 20px;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      max-width: 300px;
+      width: 280px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     }
+
     button {
-      padding: 12px 20px;
+      margin-top: 20px;
+      padding: 12px 25px;
       border: none;
-      border-radius: 10px;
+      border-radius: 25px;
       background: #ff4d6d;
       color: white;
       font-size: 16px;
-      margin-top: 15px;
     }
   </style>
 </head>
 <body>
 
 <div class="card">
-  <h1>Happy Valentine’s ❤️</h1>
+  <h1>Happy Valentine’s 💖</h1>
   <p>Are you ready for your love quiz?</p>
-
-  <audio controls autoplay loop>
-    <source src="song.m4a" type="audio/mp4">
-  </audio>
-
-  <br>
-  <a href="quiz.html">
-    <button>Start 💘</button>
-  </a>
+  <button onclick="startLove()">Start 💕</button>
 </div>
+
+<audio id="bg-music" loop>
+  <source src="song.m4a" type="audio/mp4">
+</audio>
+
+<script>
+function startLove() {
+  localStorage.setItem("musicAllowed", "yes");
+  document.getElementById("bg-music").play();
+  window.location.href = "quiz.html";
+}
+</script>
 
 </body>
 </html>
