@@ -1,56 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Valentine 💖</title>
+  <title>Boyfriend Test 💖</title>
   <style>
     body {
       margin: 0;
-      height: 100vh;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      font-family: Arial, sans-serif;
+      height: 100vh;
+      text-align: center;
     }
-
-    .card {
+    .box {
       background: white;
       padding: 30px;
       border-radius: 20px;
-      text-align: center;
-      width: 280px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
-
     button {
-      margin-top: 20px;
-      padding: 12px 25px;
+      margin-top: 15px;
+      padding: 10px 20px;
       border: none;
-      border-radius: 25px;
+      border-radius: 20px;
       background: #ff4d6d;
       color: white;
       font-size: 16px;
     }
+    .tap {
+      font-size: 12px;
+      color: gray;
+      margin-top: 10px;
+    }
   </style>
 </head>
-<body>
+<body onclick="startMusic()">
 
-<div class="card">
-  <h1>Happy Valentine’s 💖</h1>
-  <p>Are you ready for your love quiz?</p>
-  <button onclick="startLove()">Start 💕</button>
-</div>
-
-<audio id="bg-music" loop>
+<audio id="music" loop>
   <source src="song.m4a" type="audio/mp4">
 </audio>
 
+<div class="box">
+  <h2>Boyfriend Test 💘</h2>
+  <p>When did we first talk?</p>
+
+  <button onclick="correct()">2023</button><br>
+  <button onclick="wrong()">2021</button><br>
+  <button onclick="wrong()">2020</button>
+
+  <p class="tap">Tap anywhere to start music 🎵</p>
+</div>
+
 <script>
-function startLove() {
-  localStorage.setItem("musicAllowed", "yes");
-  document.getElementById("bg-music").play();
-  window.location.href = "quiz.html";
+let started = false;
+let score = 0;
+
+function startMusic() {
+  if (!started) {
+    const music = document.getElementById("music");
+    music.play();
+    localStorage.setItem("music", "on");
+    started = true;
+  }
+}
+
+function correct() {
+  score += 100;
+  localStorage.setItem("score", score);
+  window.location.href = "result.html";
+}
+
+function wrong() {
+  alert("Wrong 😤 try again!");
 }
 </script>
 
