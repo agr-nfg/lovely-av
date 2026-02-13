@@ -1,16 +1,55 @@
-<h2>How well do you know us? 😏</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Love Quiz 💘</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(#fad0c4, #ffd1ff);
+      font-family: Arial;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #ff4d6d;
+      color: white;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
 
-<form action="./result.html" method="get">
-  1. Who fell first?<br>
-  <input type="radio" name="q1"> You  
-  <input type="radio" name="q1"> Me  
-  <br><br>
+<div class="card">
+  <h2>How well do you know us? 😏</h2>
 
-  2. Our favourite thing together?<br>
-  <input type="radio" name="q2"> Food  
-  <input type="radio" name="q2"> Movies  
-  <input type="radio" name="q2"> Both  
-  <br><br>
+  <p>1. Who fell first?</p>
+  <input type="radio" name="q1"> You<br>
+  <input type="radio" name="q1"> Me<br>
 
-  <button type="submit">See my score 💌</button>
-</form>
+  <p>2. Our favourite thing together?</p>
+  <input type="radio" name="q2"> Food<br>
+  <input type="radio" name="q2"> Movies<br>
+  <input type="radio" name="q2"> Both<br>
+
+  <br>
+  <a href="result.html">
+    <button type="button">See my score 💌</button>
+  </a>
+</div>
+
+</body>
+</html>
