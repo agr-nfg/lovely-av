@@ -91,15 +91,31 @@ function playMusic() {
 function submitQuiz() {
   let score = 0;
 
-  if (q1.value.trim() == "2023") score++;
-  if (q2.value.trim().toLowerCase() == "av") score++;
-  if (q3.value.trim().toLowerCase() == "agr") score++;
-  if (q4.value.trim().toLowerCase() == "kanyakumari") score++;
-  if (q5.value.trim().toLowerCase() == "infinity") score++;
+  let a1 = q1.value.trim().toLowerCase();
+  let a2 = q2.value.trim().toLowerCase();
+  let a3 = q3.value.trim().toLowerCase();
+  let a4 = q4.value.trim().toLowerCase();
+  let a5 = q5.value.trim().toLowerCase();
+
+  // Q1 – Year
+  if (a1 == "2023" || a1 == "23") score++;
+
+  // Q2 – I love you first
+  if (a2 == "av" || a2 == "ava" || a2 == "you") score++;
+
+  // Q3 – Kissed first
+  if (a3 == "agr" || a3 == "you") score++;
+
+  // Q4 – Travel
+  if (a4.includes("kanya")) score++;
+
+  // Q5 – Love amount
+  if (a5 == "infinity" || a5 == "infinite" || a5 == "∞" || a5 == "endless") score++;
 
   localStorage.setItem("score", score);
   window.location.href = "result.html";
 }
+
 </script>
 
 </body>
