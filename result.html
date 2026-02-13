@@ -1,21 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Your Result 💘</title>
+  <title>Result 💕</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .box {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+  </style>
 </head>
-<body>
+<body onclick="startMusic()">
 
-<h1>100 / 100 🥰</h1>
-<p>You passed the boyfriend test!</p>
-<p>I love you endlessly 💖</p>
-
-<audio id="bg-music" loop>
+<audio id="music" loop>
   <source src="song.m4a" type="audio/mp4">
 </audio>
 
+<div class="box">
+  <h1 id="scoreText"></h1>
+  <p>You passed the boyfriend test! 🥰</p>
+  <p>I love you endlessly 💖</p>
+  <p style="font-size:12px;color:gray;">Tap anywhere if music didn't start 🎵</p>
+</div>
+
 <script>
-if (localStorage.getItem("musicAllowed") === "yes") {
-  document.getElementById("bg-music").play();
+let started = false;
+
+function startMusic() {
+  if (!started) {
+    const music = document.getElementById("music");
+    music.play();
+    localStorage.setItem("music", "on");
+    started = true;
+  }
+}
+
+const score = localStorage.getItem("score") || 0;
+document.getElementById("scoreText").innerText = score + " / 100 💞";
+
+if (localStorage.getItem("music") === "on") {
+  const music = document.getElementById("music");
+  music.play();
 }
 </script>
 
